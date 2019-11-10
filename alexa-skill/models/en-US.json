@@ -1,0 +1,230 @@
+{
+    "interactionModel": {
+        "languageModel": {
+            "invocationName": "health chain",
+            "intents": [
+                {
+                    "name": "AMAZON.FallbackIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.CancelIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.HelpIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.StopIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.NavigateHomeIntent",
+                    "samples": []
+                },
+                {
+                    "name": "GetBodyMassIndexIntent",
+                    "slots": [],
+                    "samples": [
+                        "get my B M I",
+                        "get my body mass index"
+                    ]
+                },
+                {
+                    "name": "GetBodyMassIndexHeightIntent",
+                    "slots": [
+                        {
+                            "name": "HeightCentimeters",
+                            "type": "AMAZON.NUMBER"
+                        }
+                    ],
+                    "samples": [
+                        "my height is {HeightCentimeters} centimeters",
+                        "my height is {HeightCentimeters}",
+                        "{HeightCentimeters} centimeters"
+                    ]
+                },
+                {
+                    "name": "GetBodyMassIndexWeightIntent",
+                    "slots": [
+                        {
+                            "name": "WeightKilograms",
+                            "type": "AMAZON.NUMBER"
+                        }
+                    ],
+                    "samples": [
+                        "my weight is {WeightKilograms} kilograms",
+                        "my weight is {WeightKilograms}",
+                        "{WeightKilograms} kilograms"
+                    ]
+                },
+                {
+                    "name": "GetNutritionFactIntent",
+                    "slots": [
+                        {
+                            "name": "Food",
+                            "type": "Food"
+                        }
+                    ],
+                    "samples": [
+                        "nutrition fact for {Food}",
+                        "nutrition fact for one cup of {Food}"
+                    ]
+                },
+                {
+                    "name": "GetDietForUnderweightIntent",
+                    "slots": [],
+                    "samples": [
+                        "diet for under weight",
+                        "diet for underweight"
+                    ]
+                },
+                {
+                    "name": "GetDietForNormalWeightIntent",
+                    "slots": [],
+                    "samples": [
+                        "diet for normal weight"
+                    ]
+                },
+                {
+                    "name": "GetDietForOverweightIntent",
+                    "slots": [],
+                    "samples": [
+                        "diet for over weight",
+                        "diet for overweight"
+                    ]
+                },
+                {
+                    "name": "GetDietForObeseIntent",
+                    "slots": [],
+                    "samples": [
+                        "diet for obese"
+                    ]
+                },
+                {
+                    "name": "GetGymProgramForUnderweightIntent",
+                    "slots": [],
+                    "samples": [
+                        "gym program for under weight",
+                        "gym program for underweight"
+                    ]
+                },
+                {
+                    "name": "GetGymProgramForNormalWeightIntent",
+                    "slots": [],
+                    "samples": [
+                        "gym program for normal weight"
+                    ]
+                },
+                {
+                    "name": "GetGymProgramForOverweightIntent",
+                    "slots": [],
+                    "samples": [
+                        "gym program for over weight",
+                        "gym program for overweight"
+                    ]
+                },
+                {
+                    "name": "GetGymProgramForObeseIntent",
+                    "slots": [],
+                    "samples": [
+                        "gym program for obese"
+                    ]
+                }
+            ],
+            "types": [
+                {
+                    "name": "Food",
+                    "values": [
+                        {
+                            "name": {
+                                "value": "pizza"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "donut"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "cabbage"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "broccoli"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "asparagus"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "chicken"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "pepper"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "grape"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "guava"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "durian"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "coconut"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "cherry"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "blueberry"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "avocado"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "banana"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "apple"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "rice"
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
+    }
+}
