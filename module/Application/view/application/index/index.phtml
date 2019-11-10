@@ -1,0 +1,103 @@
+<h1 class="my-4">Welcome to HealthChain</h1>
+
+<!-- Features Section -->
+<div class="row">
+  <div class="col-lg-6 mb-5">
+    <p>By Team Gigamike. Main Features as follows:</p>
+    <ul>
+      <li>Medical Records Online</li>
+      <li>Checkup/Consultation Online</li>
+      <li>Health Care Assistant</li>
+    </ul>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis, omnis doloremque non cum id reprehenderit, quisquam totam aspernatur tempora minima unde aliquid ea culpa sunt. Reiciendis quia dolorum ducimus unde.</p>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis, omnis doloremque non cum id reprehenderit, quisquam totam aspernatur tempora minima unde aliquid ea culpa sunt.</p>
+  </div>
+  <div class="col-lg-6">
+    <img class="img-fluid rounded" src="/img/logo.jpg" alt="">
+  </div>
+</div>
+<!-- /.row -->
+
+<!-- Call to Action Section -->
+<div class="row mb-4">
+  <div class="col-md-8">
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias, expedita, saepe, vero rerum deleniti beatae veniam harum neque nemo praesentium cum alias asperiores commodi.</p>
+  </div>
+  <div class="col-md-4">
+    <a class="btn btn-lg btn-secondary btn-block" href="<?php echo $this->url('registration'); ?>">Registration</a>
+  </div>
+</div>
+
+<!-- Marketing Icons Section -->
+<div class="row">
+  <div class="col-lg-4 mb-4">
+    <div class="card h-100">
+      <h4 class="card-header">Medical Records Online</h4>
+      <div class="card-body">
+        <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente esse necessitatibus neque.</p>
+      </div>
+      <div class="card-footer">
+        <a href="#" class="btn btn-primary">Learn More</a>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-4 mb-4">
+    <div class="card h-100">
+      <h4 class="card-header">Checkup Online</h4>
+      <div class="card-body">
+        <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis ipsam eos, nam perspiciatis natus commodi similique totam consectetur praesentium molestiae atque exercitationem ut consequuntur, sed eveniet, magni nostrum sint fuga.</p>
+      </div>
+      <div class="card-footer">
+        <a href="#" class="btn btn-primary">Learn More</a>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-4 mb-4">
+    <div class="card h-100">
+      <h4 class="card-header">Health Care Assistant</h4>
+      <div class="card-body">
+        <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente esse necessitatibus neque.</p>
+      </div>
+      <div class="card-footer">
+        <a href="#" class="btn btn-primary">Learn More</a>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- /.row -->
+
+<!-- Portfolio Section -->
+<h2>Doctors</h2>
+
+<div class="row">
+  <?php foreach ($paginator as $row): ?>
+  <div class="col-lg-4 mb-4">
+    <div class="card h-100 text-center">
+      <img class="card-img-top" src="/img/user/<?php echo $row->getId(); ?>/photo-750x450.jpg" alt="">
+      <div class="card-body">
+        <h4 class="card-title">
+          <?php if($row->getGender() == 'f'): ?>
+            Dra.
+          <?php else: ?>
+            Dr.
+          <?php endif; ?>
+          <?php echo $this->escapeHtml($row->getFirstName()); ?> <?php echo $this->escapeHtml($row->getLastName()); ?></h4>
+        <h6 class="card-subtitle mb-2 text-muted"><?php echo $this->escapeHtml($row->getTitle()); ?></h6>
+      </div>
+    </div>
+  </div>
+  <?php endforeach; ?>
+</div>
+<!-- /.row -->
+
+<hr>
+
+<!-- Call to Action Section -->
+<div class="row mb-4">
+  <div class="col-md-8">
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias, expedita, saepe, vero rerum deleniti beatae veniam harum neque nemo praesentium cum alias asperiores commodi.</p>
+  </div>
+  <div class="col-md-4">
+    <a class="btn btn-lg btn-secondary btn-block" href="<?php echo $this->url('registration'); ?>">Registration</a>
+  </div>
+</div>

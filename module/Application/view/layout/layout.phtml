@@ -1,0 +1,103 @@
+<?php echo $this->doctype(); ?>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <?php echo $this->headTitle($this->translate('HealthChain'))->setSeparator(' - ')->setAutoEscape(false) ?>
+        <?php echo $this->headMeta()
+            ->appendName('viewport', 'width=device-width, initial-scale=1, shrink-to-fit=no')
+        ?>
+        <?php echo $this->headLink(array('rel' => 'shortcut icon', 'type' => 'image/vnd.microsoft.icon', 'href' => $this->basePath() . '/img/favicon.ico'))
+                        ->prependStylesheet($this->basePath() . '/css/style.css')
+                        ->prependStylesheet($this->basePath() . '/css/modern-business.css')
+                        ->prependStylesheet('https://cdnjs.cloudflare.com/ajax/libs/jquery-tagsinput/1.3.6/jquery.tagsinput.min.css')
+                        ->prependStylesheet($this->basePath() . '/vendor/fontawesome-free/css/all.min.css')
+                        ->prependStylesheet($this->basePath() . '/vendor/jquery-ui-1.12.1/jquery-ui.min.css')
+                        ->prependStylesheet($this->basePath() . '/vendor/bootstrap/css/bootstrap.min.css') ?>
+        <?php echo $this->headScript()
+          ->prependFile($this->basePath() . '/vendor/tagsinput.min.js')
+            ->prependFile($this->basePath() . '/vendor/jquery-ui-1.12.1/jquery-ui.min.js')
+            ->prependFile($this->basePath() . '/vendor/bootstrap/js/bootstrap.bundle.min.js')
+            ->prependFile($this->basePath() . '/vendor/jquery/jquery.min.js')
+        ; ?>
+    </head>
+    <body>
+      <!-- Navigation -->
+      <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+          <a class="navbar-brand" href="<?php echo $this->url('home'); ?>">HealthChain</a>
+          <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+              <?php if ($user = $this->identity()): ?>
+                <?php if ($user->role == 'patient'): ?>
+                  <li class="nav-item">
+                    <a class="nav-link" href="<?php echo $this->url('member'); ?>"><i class="fas fa-user"></i> <?php echo $user->first_name; ?></a>
+                  </li>
+                <?php elseif ($user->role == 'doctor'): ?>
+                  <li class="nav-item">
+                    <a class="nav-link" href="<?php echo $this->url('member'); ?>"><i class="fas fa-user"></i> <?php echo $user->first_name; ?></a>
+                  </li>
+                <?php endif; ?>
+                <li class="nav-item">
+                  <a class="nav-link" href="<?php echo $this->url('logout'); ?>"><i class="fas fa-sign-out-alt"></i> Logout</a>
+                </li>
+              <?php else: ?>
+                <li class="nav-item">
+                  <a class="nav-link" href="<?php echo $this->url('registration'); ?>"><i class="fas fa-registered"></i> Register</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="<?php echo $this->url('login'); ?>"><i class="fas fa-sign-in-alt"></i> Sign in</a>
+                </li>
+              <?php endif; ?>
+              <li class="nav-item">
+                <a class="nav-link" href="#">About</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Services</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Contact</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+
+
+      <!-- Page Content -->
+      <div class="container">
+            <?php echo $this->content; ?>
+      </div>
+      <!-- /.container -->
+      <!-- Footer -->
+      <footer class="py-5 bg-dark">
+        <div class="container">
+          <p class="m-0 text-center text-white">Copyright &copy; HealthChain 2019</p>
+        </div>
+        <!-- /.container -->
+      </footer>
+
+      <?php if ($user = $this->identity()): ?>
+    <?php if ($user->role == 'patient'): ?>
+  <script>
+  var botmanWidget = {
+      bubbleAvatarUrl: '/img/chat-logo.png',
+      chatServer: '/chatbot/server',
+      frameEndpoint: '/chatbot',
+      title: 'HealthChain Chatbot',
+      mainColor: '#4c9f38',
+      bubbleBackground: '#4c9f38',
+      aboutLink: 'https://www.gigamike.net/',
+      aboutText: 'Powered By GigaMike',
+      introMessage: 'Welcome to HealthChain by team Gigamike. Do you want to check if your weight is healthy? just say get my body mass index. Or ask about food nutrition facts.',
+  };
+  </script>
+  <script src='https://cdn.jsdelivr.net/npm/botman-web-widget@0/build/js/widget.js'></script>
+<?php endif; ?>
+<?php endif; ?>
+
+        <?php echo $this->inlineScript() ?>
+    </body>
+</html>
