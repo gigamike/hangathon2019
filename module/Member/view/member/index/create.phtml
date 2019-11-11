@@ -1,0 +1,190 @@
+<div class="container space-top-md-2">
+<div>
+
+<!-- Page Heading/Breadcrumbs -->
+<h1 class="mt-4 mb-3">Welcome
+  <small>
+    <?php if ($this->user->getRole() == 'doctor'): ?>
+      <?php if($this->user->getGender() == 'f'): ?>
+      Dra.
+    <?php else: ?>
+      Dr.
+    <?php endif; ?><?php endif; ?>
+    <?php echo $this->user->getFirstName(); ?> <?php echo $this->user->getLastName(); ?> (<?php echo $this->user->getPublicAddress(); ?>)</small>
+</h1>
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">
+    <a href="<?php echo $this->url('member'); ?>">Home</a>
+  </li>
+  <li class="breadcrumb-item active">Consultations</li>
+</ol>
+
+<!-- Content Row -->
+<div class="row">
+
+  <!-- Sidebar Column -->
+  <div class="col-lg-3 mb-4">
+    <?php echo $this->partial('partial/member/menu.phtml', array(
+        'route' => $this->route,
+        'action' => $this->action,
+    )); ?>
+  </div>
+
+  <!-- Content Column -->
+  <div class="col-lg-9 mb-4">
+    <h2>Consultations</h2>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Soluta, et temporibus, facere perferendis veniam beatae non debitis, numquam blanditiis necessitatibus vel mollitia dolorum laudantium, voluptate dolores iure maxime ducimus fugit.</p>
+
+    <div class="card shadow mb-4">
+      <div class="card-header py-3">
+        <h6 class="m-0 font-weight-bold">New Medical Record</h6>
+      </div>
+      <div class="card-body">
+        <?php
+          $flash = $this->flashMessenger();
+          $flash->setMessageOpenFormat('<div%s role="alert">
+              <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+              </button>
+              ')
+              ->setMessageSeparatorString('')
+              ->setMessageCloseString('</div>');
+
+          echo $flash->render('error',   array('alert', 'alert-dismissible', 'alert-danger'));
+          echo $flash->render('info',    array('alert', 'alert-dismissible', 'alert-info'));
+          echo $flash->render('default', array('alert', 'alert-dismissible', 'alert-warning'));
+          echo $flash->render('success', array('alert', 'alert-dismissible', 'alert-success'));
+           ?>
+
+           <?php
+           $form->prepare();
+           echo $this->form()->openTag($form);
+           ?>
+           <div class="form-group">
+             <div class="form-row">
+               <div class="col-md-12">
+                 <div class="form-label-group">
+                   <?= $this->formElement($form->get('patient_public_address')) ?>
+                   <?= $this->formLabel($form->get('patient_public_address')) ?>
+                   <?= $this->formElementErrors()->render($form->get('patient_public_address'), ['class' => 'help-block']) ?>
+                 </div>
+               </div>
+             </div>
+           </div>
+
+           <div class="form-group">
+             <div class="form-row">
+               <div class="col-md-12">
+                 <div class="form-label-group">
+                   <?= $this->formElement($form->get('doctor_public_address')) ?>
+                   <?= $this->formLabel($form->get('doctor_public_address')) ?>
+                   <?= $this->formElementErrors()->render($form->get('doctor_public_address'), ['class' => 'help-block']) ?>
+                 </div>
+               </div>
+             </div>
+           </div>
+
+           <div class="form-group">
+             <div class="form-row">
+               <div class="col-md-12">
+                 <div class="form-label-group">
+                   <?= $this->formElement($form->get('doctor')) ?>
+                   <?= $this->formLabel($form->get('doctor')) ?>
+                   <?= $this->formElementErrors()->render($form->get('doctor'), ['class' => 'help-block']) ?>
+                 </div>
+               </div>
+             </div>
+           </div>
+
+           <div class="form-group">
+             <div class="form-row">
+               <div class="col-md-12">
+                 <div class="form-label-group">
+                   <?= $this->formElement($form->get('hospital_id')) ?>
+                   <?= $this->formLabel($form->get('hospital_id')) ?>
+                   <?= $this->formElementErrors()->render($form->get('hospital_id'), ['class' => 'help-block']) ?>
+                 </div>
+               </div>
+             </div>
+           </div>
+
+           <div class="form-group">
+             <div class="form-row">
+               <div class="col-md-12">
+                 <div class="form-label-group">
+                   <?= $this->formElement($form->get('diagnostics')) ?>
+                   <?= $this->formLabel($form->get('diagnostics')) ?>
+                   (Character Count: <span id="diagnostics_count">0</span>)
+                   <?= $this->formElementErrors()->render($form->get('diagnostics'), ['class' => 'help-block']) ?>
+                 </div>
+               </div>
+             </div>
+           </div>
+
+           <div class="form-group">
+             <div class="form-row">
+               <div class="col-md-12">
+                 <div class="form-label-group">
+                   <?= $this->formElement($form->get('prescriptions')) ?>
+                   <?= $this->formLabel($form->get('prescriptions')) ?>
+                   (Character Count: <span id="prescriptions_count">0</span>)
+                   <?= $this->formElementErrors()->render($form->get('prescriptions'), ['class' => 'help-block']) ?>
+                 </div>
+               </div>
+             </div>
+           </div>
+
+          <?php echo $this->formSubmit($form->get('submit')); ?>
+        <?php echo $this->form()->closeTag();?>
+      </div>
+    </div>
+
+
+            <div class="card shadow mb-4">
+                      <div class="card-header py-3">
+                        <h6 class="m-0 font-weight-bold">Checkup History</h6>
+                      </div>
+                      <div class="card-body">
+                        <table class="table table-bordered table-hover">
+                          <thead>
+                            <tr>
+                              <th scope="col">Date</th>
+                              <th scope="col">Hospital</th>
+                              <th scope="col">Doctor</th>
+                              <th scope="col">Diagnostics</th>
+                              <th scope="col">Prescriptions</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <?php foreach ($medicalRecords as $medicalRecord): ?>
+                            <tr>
+                              <th><?php echo date('M d, Y', $medicalRecord['time']); ?></th>
+                              <td><?php echo $medicalRecord['hospital']; ?></td>
+                              <td><?php echo $medicalRecord['doctor']; ?></td>
+                              <td><?php echo $medicalRecord['diagnostics']; ?></td>
+                              <td><?php echo $medicalRecord['prescriptions']; ?></td>
+                            </tr>
+                            <?php endforeach; ?>
+                          </tbody>
+                        </table>
+                      </div>
+          </div>
+
+  </div>
+  <!-- /.container-fluid -->
+
+  </div>
+</div>
+<!-- /.row -->
+
+<script>
+$( document ).ready(function() {
+  $("#diagnostics").on("input", function() {
+    $("#diagnostics_count").text(this.value.length);
+  });
+  $("#prescriptions").on("input", function() {
+    $("#prescriptions_count").text(this.value.length);
+  });
+});
+</script>

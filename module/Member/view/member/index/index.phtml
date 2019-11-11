@@ -1,0 +1,148 @@
+<div class="container space-top-md-2">
+  <!-- Page Heading/Breadcrumbs -->
+
+  <h1 class="mt-4 mb-3">Welcome
+    <small>
+      <?php if ($this->user->getRole() == 'doctor'): ?>
+        <?php if($this->user->getGender() == 'f'): ?>
+        Dra.
+      <?php else: ?>
+        Dr.
+      <?php endif; ?><?php endif; ?>
+      <?php echo $this->user->getFirstName(); ?> <?php echo $this->user->getLastName(); ?> (<?php echo $this->user->getPublicAddress(); ?>)</small>
+  </h1>
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item">
+      <a href="<?php echo $this->url('member'); ?>">Home</a>
+    </li>
+    <li class="breadcrumb-item active">Dashboard</li>
+  </ol>
+
+  <!-- Content Row -->
+  <div class="row">
+
+    <!-- Sidebar Column -->
+    <div class="col-lg-3 mb-4">
+      <?php echo $this->partial('partial/member/menu.phtml', array(
+          'route' => $this->route,
+          'action' => $this->action,
+      )); ?>
+    </div>
+
+    <!-- Content Column -->
+    <div class="col-lg-9 mb-4">
+      <?php
+      $flash = $this->flashMessenger();
+      $flash->setMessageOpenFormat('<div%s role="alert">
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+          </button>
+          ')
+          ->setMessageSeparatorString('')
+          ->setMessageCloseString('</div>');
+
+      echo $flash->render('error',   array('alert', 'alert-dismissible', 'alert-danger'));
+      echo $flash->render('info',    array('alert', 'alert-dismissible', 'alert-info'));
+      echo $flash->render('default', array('alert', 'alert-dismissible', 'alert-warning'));
+      echo $flash->render('success', array('alert', 'alert-dismissible', 'alert-success'));
+       ?>
+       <h2>Welcome To HealthChain</h2>
+       <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Soluta, et temporibus, facere perferendis veniam beatae non debitis, numquam blanditiis necessitatibus vel mollitia dolorum laudantium, voluptate dolores iure maxime ducimus fugit.</p>
+
+       <?php if ($user = $this->identity()): ?>
+         <?php if ($user->role == 'doctor'): ?>
+
+       <div class="card shadow mb-4">
+         <div class="card-header py-3">
+           <h6 class="m-0 font-weight-bold text-primary">Search/Filter</h6>
+         </div>
+         <div class="card-body">
+               <h2>Queue for Checkup/Consultation</h2>
+               <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Soluta, et temporibus, facere perferendis veniam beatae non debitis, numquam blanditiis necessitatibus vel mollitia dolorum laudantium, voluptate dolores iure maxime ducimus fugit.</p>
+
+               <table class="table table-bordered table-hover">
+                 <thead>
+                   <tr>
+                     <th scope="col">Last Checkup</th>
+                     <th scope="col">Patient</th>
+                     <th scope="col">View</th>
+                   </tr>
+                 </thead>
+                 <tbody>
+                   <tr>
+                     <td>Sep 29, 2019</td>
+                     <td>Mik Galon</td>
+                     <td><a href="#">View</a></td>
+                   </tr>
+                   <tr>
+                     <td>New</td>
+                     <td>Tristan Rosales</td>
+                     <td><a href="#">View</a></td>
+                   </tr>
+                   <tr>
+                     <td>New</td>
+                     <td>Michael Lance</td>
+                     <td><a href="#">View</a></td>
+                   </tr>
+                   <tr>
+                     <td>New</td>
+                     <td>Raffy Repiso</td>
+                     <td><a href="#">View</a></td>
+                   </tr>
+                 </tbody>
+               </table>
+
+          </div>
+      </div>
+      <?php endif; ?>
+
+      <?php if ($user->role == 'patient'): ?>
+
+      <div class="card shadow mb-4">
+        <div class="card-header py-3">
+          <h6 class="m-0 font-weight-bold text-primary">My Medical Records</h6>
+        </div>
+        <div class="card-body">
+
+          <table class="table table-bordered table-hover">
+            <thead>
+              <tr>
+                <th scope="col">Date</th>
+                <th scope="col">Hospital</th>
+                <th scope="col">Doctor</th>
+                <th scope="col">Diagnostics</th>
+                <th scope="col">Prescriptions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <?php foreach ($medicalRecords as $medicalRecord): ?>
+              <tr>
+                <th><?php echo date('M d, Y', $medicalRecord['time']); ?></th>
+                <td><?php echo $medicalRecord['hospital']; ?></td>
+                <td><?php echo $medicalRecord['doctor']; ?></td>
+                <td><?php echo $medicalRecord['diagnostics']; ?></td>
+                <td><?php echo $medicalRecord['prescriptions']; ?></td>
+              </tr>
+              <?php endforeach; ?>
+            </tbody>
+          </table>
+         </div>
+     </div>
+
+
+
+
+
+    <?php endif; ?>
+  <?php endif; ?>
+
+
+
+
+    </div>
+    <!-- /.container-fluid -->
+
+    </div>
+  </div>
+  <!-- /.row -->
+</div>

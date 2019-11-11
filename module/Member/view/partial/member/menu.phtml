@@ -1,0 +1,15 @@
+<div class="list-group">
+  <a href="<?php echo $this->url('member'); ?>" class="list-group-item <?php if($this->route=='member' && $this->action=='index'): ?>active<?php endif; ?>">Dashboard</a>
+  <?php if ($user = $this->identity()): ?>
+    <?php if ($user->role == 'doctor'): ?>
+      <a href="<?php echo $this->url('member', array('action' => 'patient',)); ?>" class="list-group-item <?php if($this->route=='member' && $this->action=='create'): ?>active<?php endif; ?>">Outpatient</a>
+    <?php endif; ?>
+    <a href="<?php echo $this->url('member', array('action' => 'portal',)); ?>" class="list-group-item <?php if($this->route=='member' && ($this->action=='portal' || $this->action=='video' || $this->action=='tag-cash')): ?>active<?php endif; ?>">Online Consultations</a>
+    <?php if ($user->role == 'patient'): ?>
+      <a href="<?php echo $this->url('member', array('action' => 'pharmaceutical',)); ?>" class="list-group-item <?php if($this->route=='member' && $this->action=='pharmaceutical'): ?>active<?php endif; ?>">Pharmaceutical Products</a>
+      <a href="<?php echo $this->url('member', array('action' => 'incentives',)); ?>" class="list-group-item <?php if($this->route=='member' && $this->action=='incentives'): ?>active<?php endif; ?>">Incentives</a>
+    <?php endif; ?>
+  <?php endif; ?>
+  <a href="<?php echo $this->url('member', array('action' => 'profile',)); ?>" class="list-group-item <?php if($this->route=='member' && $this->action=='profile'): ?>active<?php endif; ?>">My Profile</a>
+  <a href="<?php echo $this->url('logout'); ?>" class="list-group-item">Logout</a>
+</div>
