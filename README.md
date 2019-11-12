@@ -4,6 +4,7 @@ Team Gigamike
 hANGAThon 2019 - Debugged: The Philippines
 ------------
 Category: Healthcare<br />
+App Name: HealthChain<br />
 
 Problems
 ------------
@@ -24,6 +25,14 @@ Features:<br />
 
 About Us
 ------------
-Mik Galon, MIM - Team Lead, Full Stack Web Developer, Blockchain Developer, Alexa Skills Developer, Certified AWS Solutions Architect/Devops<br />
-Amah Buenaventura, CPA, MBA, (CMA) / Management Consultant<br />
-Von Payumo - Frontend Developer / UI/UX Designer
+* Mik Galon, MIM<br />
+- Team Lead<br />
+- Full Stack Web Developer<br />
+- Blockchain Developer<br />
+- Alexa Skills Developer<br />
+- Certified AWS Solutions Architect/Devops<br />
+* Amah Buenaventura, CPA, MBA, (CMA)
+- Management Consultant<br />
+* Von Payumo
+- Frontend Developer
+- UI/UX Designer
