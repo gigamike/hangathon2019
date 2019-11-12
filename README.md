@@ -7,20 +7,20 @@ Category: Healthcare<br />
 
 Problems
 ------------
-1. Difficult to access medical records due to Hospitals lack of interoperability.<br />
+* Difficult to access medical records due to Hospitals lack of interoperability.<br />
 - Which results to Medical Error.<br />
 - Lack of Data Records for Research.<br />
-2. Inconvenient and costly accessing doctors and health facilities.<br />
-3. Lack of Motivation in maintaining healthy lifestyles.<br />
+* Inconvenient and costly accessing doctors and health facilities.<br />
+* Lack of Motivation in maintaining healthy lifestyles.<br />
 
 Solution
 ------------
 App Name: HealthChain<br />
 App Description: Complete Decentralized Health Records and Health Care Platform.<br /><br />
 Features:<br />
-1. Electronic and Decentralized Medical Records.<br />
-2. Online Consultation With General Doctors.<br />
-3. Health Care Assistant and Incentives.<br />
+* Electronic and Decentralized Medical Records.<br />
+* Online Consultation With General Doctors.<br />
+* Health Care Assistant and Incentives.<br />
 
 About Us
 ------------
