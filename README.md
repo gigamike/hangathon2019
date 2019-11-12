@@ -4,7 +4,21 @@ Team Gigamike
 hANGAThon 2019 - Debugged: The Philippines
 ------------
 Category: Healthcare<br />
-App: HealthChain. Complete Decentralized Health Records and Health Care Platform.<br />
+
+Problems
+------------
+Difficult to access medical records due to Hospitals lack of interoperability.<br />
+Inconvenient and costly accessing doctors and health facilities.<br />
+Lack of Motivation in maintaining healthy lifestyles.<br />
+
+Solution
+------------
+App Name: HealthChain
+App Description: Complete Decentralized Health Records and Health Care Platform.<br />
+Features:<br />
+Electronic and Decentralized Medical Records.<br />
+Online Consultation With General Doctors.<br />
+Health Care Assistant and Incentives.<br />
 
 About Us
 ------------
