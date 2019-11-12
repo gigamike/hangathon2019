@@ -12,6 +12,11 @@ return array(
 		'smart-contract',
 		'patient',
 		'api',
+		'terms-of-use',
+		'privacy-policy',
+		'about',
+		'service',
+		'contact',
 	),
 	'doctor'=> array(
 		'member',

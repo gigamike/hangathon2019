@@ -261,6 +261,8 @@ class IndexController extends AbstractActionController
       }
       $doctor = $title . " " . $user->getFirstName() . " " . $user->getLastName();
       $time = time();
+      // $time = strtotime('-2 months');
+      // $time = strtotime('-8 months');
 
       $contract->at($contractAddress)->send('setMedicalRecord', $patient_public_address, $hospital->getName(), $doctor, $diagnostics, $prescriptions, $time, [
         'from' => $doctor_public_address,
